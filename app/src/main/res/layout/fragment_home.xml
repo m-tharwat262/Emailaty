@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/app_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary_color"
+            android:text="@string/main"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="40dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/frame_with_border">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/circle"/>
+
+
+            <TextView
+                android:id="@+id/fragment_home_email_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:text="10"/>
+
+
+            <TextView
+                android:id="@+id/fragment_home_item_email_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_with_border"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:text="mahmoudtharwat202020@gamil.com"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fragment_home_next_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:textColor="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center"
+                android:background="@drawable/primary_button"
+                android:text="@string/next"/>
+
+
+
+            <TextView
+                android:id="@+id/fragment_home_copy_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:textColor="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center"
+                android:background="@drawable/primary_button"
+                android:text="@string/copy"/>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/fragment_home_edit_emails_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center"
+            android:background="@drawable/primary_button"
+            android:text="@string/edit_emails"/>
+
+
+
+        <TextView
+            android:id="@+id/fragment_home_show_emails_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center"
+            android:background="@drawable/primary_button"
+            android:text="@string/show_emails"/>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

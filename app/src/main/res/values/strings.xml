@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">إيميلاتي</string>
+    <string name="by_mtma">BY MTMA</string>
+    <string name="main">الرئيسية</string>
+    <string name="add_emails">إضافة إيميلات</string>
+    <string name="past_emails_here">قم بلصق الايميلات هنا</string>
+    <string name="add">إضافة</string>
+    <string name="please_add_email_address">قم بإضافة إيميل اولا</string>
+    <string name="copy">نسخ</string>
+    <string name="next">التالي</string>
+    <string name="show_emails">مشاهدة الايميلات</string>
+    <string name="edit_emails">تعديل الايميلات</string>
+
+
+
+    <string name="insert_email_inside_database_successful">تم حفظ الايميل بنجاح</string>
+    <string name="insert_email_inside_database_failed">حدث خطأ اثناء حفظ الايميل</string>
+    <string name="no_emails_yet">لم تقم بإضافه اي ايميلات بعد</string>
+    <string name="no_emails_next">لا توجد ايميلات تالية</string>
+    <string name="text_copied">تم نسخ الايميل</string>
+    <string name="edit_button">تعديل</string>
+    <string name="delete">حذف</string>
+    <string name="edit">تعديل</string>
+    <string name="no_change_in_eamil">"لا يوجد تغيير في الايميل "</string>
+    <string name="can_not_be_empty">لا يمكن ان يكون فارغ</string>
+    <string name="update_email_inside_database_failed">فشل تعديل الايميل</string>
+    <string name="update_email_inside_database_successful">نجاح تعديل الايميل</string>
+    <string name="delete_email_inside_database_failed">فشل جذف الايميل</string>
+    <string name="delete_email_inside_database_successful">نجاح حذف الايميل</string>
+
+
+    <string name="check_update_for_clients">هذه النسخه لم تعد صالحه للاستخدام ،قم بمراسله المبرمج (Mahmoud Tharwat).</string>
+
+</resources>
