@@ -4,11 +4,8 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
@@ -28,10 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.rasemails.R;
 import com.rasemails.adapters.EmailsCursorAdapter;
-import com.rasemails.data.EmailatyContract;
 import com.rasemails.data.EmailatyContract.EmailsEntry;
-
-import org.w3c.dom.Text;
 
 public class HomeFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -52,13 +44,12 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
     private int mCursorPosition = 0;
     private EmailsCursorAdapter mShowEmailsCursorAdapter;
     private EmailsCursorAdapter mEditEmailsCursorAdapter;
-    private static final int SHOW_EMAIL_LOADER = 0; // number for the semester loader.
-    private static final int EDIT_EMAIL_LOADER = 1; // number for the semester loader.
+    private static final int SHOW_EMAIL_LOADER = 0;
+    private static final int EDIT_EMAIL_LOADER = 1;
 
 
 
     public HomeFragment(Context context) {
-        // Required empty public constructor
         mContext = context;
     }
 
@@ -91,14 +82,12 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         LoaderManager.getInstance(this).initLoader(SHOW_EMAIL_LOADER, null, this);
         LoaderManager.getInstance(this).initLoader(EDIT_EMAIL_LOADER, null, this);
 
-//        setupHomeEmails();
-//
-//        setClickingOnCopyButton();
-//        setClickingOnNextButton();
-//        setClickingOnShowEmailsButton();
-//        setClickingOnEditEmailsButton();
 
-        // Inflate the layout for this fragment
+        setClickingOnCopyButton();
+        setClickingOnNextButton();
+        setClickingOnShowEmailsButton();
+        setClickingOnEditEmailsButton();
+
         return mMainView;
 
     }
@@ -108,8 +97,6 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         if (mEmailCursor.getCount() != 0) {
 
             mEmailCursor.moveToPosition(mCursorPosition);
-
-//            mCursorPosition = mEmailCursor.getPosition();
 
             int emailColumnIndex = mEmailCursor.getColumnIndexOrThrow(EmailsEntry.COLUMN_EMAIL_NAME);
 
@@ -121,7 +108,6 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
 
         } else {
 
-//            String email = mEmailCursor.getString(R.string.no_emails_yet);
             mEmailFieldTextView.setText(R.string.no_emails_yet);
             mEmailFieldTextView.setTextColor(mContext.getResources().getColor(R.color.color_gray));
 
@@ -138,8 +124,6 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Log.i("Unix", "the mCursorPosition is : " + mCursorPosition + "    and the getCount si : " + mEmailCursor.getCount());
 
                 if (mCursorPosition + 1 < mEmailCursor.getCount()) {
 
@@ -209,12 +193,9 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
         ListView emailsListView = dialog.findViewById(R.id.dialog_show_emails_list_view);
 
 
-
         titleTextView.setText(R.string.show_emails);
 
-
         emailsListView.setAdapter(mShowEmailsCursorAdapter);
-
 
         emailsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -283,8 +264,6 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public Loader<Cursor> onCreateLoader(int loaderID, Bundle args) {
 
-
-
         switch (loaderID) {
 
             case SHOW_EMAIL_LOADER:
@@ -292,10 +271,9 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
 
                 String sortOrder = EmailsEntry.COLUMN_UNIX + " ASC";
 
-
                 return new CursorLoader(mContext,
                         EmailsEntry.CONTENT_URI,
-                        null, // null because all the table columns will be used.
+                        null,
                         null,
                         null,
                         sortOrder);
@@ -308,30 +286,17 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
     }
 
 
-
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 
-        // handle each loader.
         switch (loader.getId()) {
 
-            // for semester loader.
             case SHOW_EMAIL_LOADER:
 
                 mShowEmailsCursorAdapter.swapCursor(cursor);
-//                mEmailCursor = cursor;
-
-//                setupHomeEmails();
-//
-//                setClickingOnCopyButton();
-//                setClickingOnNextButton();
-//                setClickingOnShowEmailsButton();
-//                setClickingOnEditEmailsButton();
-
 
                 break;
 
-            // for semester loader.
             case EDIT_EMAIL_LOADER:
 
                 mEditEmailsCursorAdapter.swapCursor(cursor);
@@ -339,20 +304,11 @@ public class HomeFragment extends Fragment implements LoaderManager.LoaderCallba
 
                 setupHomeEmails();
 
-                setClickingOnCopyButton();
-                setClickingOnNextButton();
-                setClickingOnShowEmailsButton();
-                setClickingOnEditEmailsButton();
-
-
                 break;
-
 
         }
 
-
     }
-
 
 
     @Override

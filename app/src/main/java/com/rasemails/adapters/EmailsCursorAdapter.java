@@ -6,24 +6,18 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.viewpager.widget.ViewPager;
 
 import com.rasemails.R;
-import com.rasemails.activities.MainActivity;
 import com.rasemails.data.EmailatyContract.EmailsEntry;
 
 public class EmailsCursorAdapter  extends CursorAdapter {
@@ -54,9 +48,6 @@ public class EmailsCursorAdapter  extends CursorAdapter {
     }
 
 
-    /**
-     * Inflate our custom item to use it inside the ListView.
-     */
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
 
@@ -127,8 +118,7 @@ public class EmailsCursorAdapter  extends CursorAdapter {
         rowView.mEmailField.setText(email);
 
 
-        rowView.mEmailField.setTag(cursor.getPosition());   // here you set position on a tag
-
+        rowView.mEmailField.setTag(cursor.getPosition());
 
 
         if (mMode == EDIT_MODE) {
@@ -211,21 +201,15 @@ public class EmailsCursorAdapter  extends CursorAdapter {
 
     private void updateYear(ContentValues values, Uri yearUri) {
 
-        // update the semester and get number of the rows that updated.
         int rows = mContext.getContentResolver().update(yearUri, values, null, null);
 
-        // check if the semester updated successfully or failed.
         if (rows == 0) {
-            // show a toast message to the user says that "Error with updating semester".
             Toast.makeText(mContext, R.string.update_email_inside_database_failed, Toast.LENGTH_SHORT).show();
         } else {
-            // show a toast message to the user says that "Semester updated".
             Toast.makeText(mContext, R.string.update_email_inside_database_successful, Toast.LENGTH_SHORT).show();
         }
 
     }
-
-
 
     private void deleteFromDatabase(long id) {
 

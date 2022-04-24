@@ -27,7 +27,6 @@ public class AddEmailFragment extends Fragment {
 
 
     public AddEmailFragment(Context context) {
-        // Required empty public constructor
         mContext = context;
     }
 
@@ -51,7 +50,6 @@ public class AddEmailFragment extends Fragment {
 
         setClickingOnAddEmailButton();
 
-        // Inflate the layout for this fragment
         return mMainView;
     }
 
@@ -78,12 +76,9 @@ public class AddEmailFragment extends Fragment {
 
         long time = System.currentTimeMillis();
 
-
-        // initialize and setup the ContentValues to contain the data that will be insert inside the database.
         ContentValues values = new ContentValues();
         values.put(EmailsEntry.COLUMN_EMAIL_NAME, emailAddress);
         values.put(EmailsEntry.COLUMN_UNIX, time);
-
 
         insertEmail(values);
 
@@ -91,15 +86,11 @@ public class AddEmailFragment extends Fragment {
 
     private void insertEmail(ContentValues values) {
 
-        // insert the new semester to the database and get the uri for that semester.
         Uri uri = mContext.getContentResolver().insert(EmailsEntry.CONTENT_URI, values);
 
-        // check if the semester inserted successfully or failed.
         if (uri == null) {
-            // show a toast message to the user says that "Error with saving semester".
             Toast.makeText(mContext, R.string.insert_email_inside_database_failed, Toast.LENGTH_SHORT).show();
         } else {
-            // show a toast message to the user says that "Semester saved".
             Toast.makeText(mContext, R.string.insert_email_inside_database_successful, Toast.LENGTH_SHORT).show();
             mEmailAddressField.setText("");
         }

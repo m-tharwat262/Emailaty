@@ -18,7 +18,6 @@ public final class EmailatyContract {
 
 
 
-
     public static final class EmailsEntry implements BaseColumns {
 
 
@@ -26,17 +25,12 @@ public final class EmailatyContract {
 
         public final static String TABLE_NAME = "emails"; // table name.
 
-
-        // head names for the table rows.
         public final static String _ID = BaseColumns._ID;
         public final static String COLUMN_EMAIL_NAME = "email_name";
         public final static String COLUMN_UNIX = "unix";
 
 
 
-
-
-        // for outside apps that may be allow to access to the database in the app.
         public static final String CONTENT_LIST_TYPE =
                 ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_EMAILS;
 
